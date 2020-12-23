@@ -118,6 +118,7 @@
           </div>
 
           <a @click="clearFormPrice" class="talk__clear">Limpar</a>
+          <router-link to="/" class="talk__home">Ir para Home</router-link>
         </div>
       </div>
     </div>
@@ -189,30 +190,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/sass/main.scss';
 .talk {
   width: 100%;
 
   &__container {
+    @include container;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2% 2% 2%;
+    padding-bottom: 2%;
   }
 
   &__title {
     margin-bottom: 2rem;
     max-width: 50rem;
     font-size: 3.6rem;
-    color: #fff;
+    color: $colorBase;
   }
 
   &__description {
     max-width: 60rem;
     font-weight: bold;
-    color: #fff;
+    color: $colorBase;
   }
 
   &__call {
@@ -230,7 +230,7 @@ export default {
   }
 
   &__text {
-    color: #fff;
+    color: $colorBase;
   }
 
   &__label {
@@ -246,7 +246,7 @@ export default {
     padding: 0.625rem 0.625rem;
     border: 0;
     font-weight: bold;
-    color: #fff;
+    color: $colorBase;
     cursor: pointer;
   }
 
@@ -263,7 +263,7 @@ export default {
     align-items: center;
     width: 35rem;
     height: 35rem;
-    background-color: #fff;
+    background-color: $colorBase;
 
     @media screen and (max-width: 989px) {
       justify-content: center;
@@ -286,15 +286,15 @@ export default {
   &__cost {
     margin: 0.625rem 0 3rem 0;
     font-size: 3.6rem;
-    color: #1136ff;
+    color: $colorPrimary;
   }
 
   &__withMoreTalk {
-    color: #1136ff;
+    color: $colorPrimary;
   }
 
   &__withoutMoreTalk {
-    color: #eb3d08;
+    color: $colorDanger;
   }
 
   &__table {
@@ -303,22 +303,22 @@ export default {
 
   &__prices {
     padding: 0.625rem 0.6rem;
-    border: 1px solid #e8d9d0;
+    border: 1px solid $colorBorder;
     border-radius: 2px;
-    background-color: #fff;
+    background-color: $colorBase;
     cursor: pointer;
 
     &:hover {
       border: 0;
-      background-color: #1136ff;
-      color: #ffffff;
+      background-color: $colorPrimary;
+      color: $colorBase;
       transition: 0.3s ease;
     }
   }
 
   &__clear,
   &__home {
-    color: #1136ff;
+    color: $colorPrimary;
     text-decoration: none;
     cursor: pointer;
 
@@ -326,13 +326,5 @@ export default {
       opacity: 0.7;
     }
   }
-}
-
-.warning {
-  background-color: #1136ff;
-}
-
-.danger {
-  background-color: #eb3d08;
 }
 </style>

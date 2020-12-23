@@ -64,19 +64,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/sass/main.scss';
 .about {
   width: 100%;
 
   &__container {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2%;
+    @include container;
   }
 
   &__title {
     font-size: 3.6rem;
-    color: #fff;
+    color: $colorBase;
   }
 
   &__description {
@@ -84,7 +82,7 @@ export default {
     margin-top: 2rem;
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    color: $colorBase;
   }
 
   &__table {
@@ -93,7 +91,7 @@ export default {
     margin-top: 2rem;
     padding: 0.625rem 2rem;
     border-radius: 0.3125rem;
-    background-color: #fff;
+    background-color: $colorBase;
   }
 
   &__column {
@@ -111,10 +109,10 @@ export default {
   &__link {
     font-weight: bold;
     text-decoration: none;
-    color: #fff;
+    color: $colorBase;
 
     &:hover {
-      color: #1136ff;
+      color: $colorPrimary;
     }
   }
 }

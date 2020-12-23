@@ -4,7 +4,7 @@
       <nav class="header__nav">
         <router-link to="/">
           <figure class="header__logo">
-            <img src="../assets/logo.svg" alt="Telzir" />
+            <img src="../assets/images/logo.svg" alt="Telzir" />
           </figure>
         </router-link>
       </nav>
@@ -13,12 +13,11 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/sass/main.scss';
+
 .header {
   &__container {
-    max-width: 998px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2%;
+    @include container;
   }
 
   &__nav {

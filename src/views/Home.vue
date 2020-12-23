@@ -14,12 +14,14 @@
         </p>
 
         <div class="home__btnBox">
-          <button class="home__button">Fale Mais</button>
+          <router-link to="/fale-mais">
+            <button class="home__button">Fale Mais</button>
+          </router-link>
         </div>
       </div>
 
       <div class="home__right">
-        <img class="home__image" src="../assets/phone.svg" alt="Phone" />
+        <img class="home__image" src="../assets/images/phone.svg" alt="Phone" />
       </div>
     </div>
   </main>
@@ -33,17 +35,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/sass/main.scss';
 .home {
   width: 100%;
 
   &__container {
+    @include container;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2% 2% 2%;
+    padding-bottom: 2%;
 
     @media screen and (max-width: 1200px) {
       flex-direction: column-reverse;
@@ -52,7 +53,7 @@ export default {
 
   &__title {
     font-size: 3.6rem;
-    color: #fff;
+    color: $colorBase;
 
     @media screen and (max-width: 1200px) {
       text-align: center;
@@ -63,7 +64,7 @@ export default {
     max-width: 50rem;
     margin: 2rem 0;
     font-weight: bold;
-    color: #fff;
+    color: $colorBase;
 
     @media screen and (max-width: 1200px) {
       max-width: initial;
@@ -90,13 +91,13 @@ export default {
     padding: 0.625rem 0.6rem;
     border: 0;
     border-radius: 2px;
-    background-color: #1136ff;
-    color: #ffffff;
+    background-color: $colorPrimary;
+    color: $colorBase;
     cursor: pointer;
 
     &:hover {
-      background-color: #fff;
-      color: #000;
+      background-color: $colorBase;
+      color: $colorBlack;
       transition: 0.3s ease;
     }
   }
@@ -110,7 +111,7 @@ export default {
   &__link {
     font-weight: bold;
     text-decoration: none;
-    color: #1136ff;
+    color: $colorPrimary;
 
     &:hover {
       opacity: 0.7;
