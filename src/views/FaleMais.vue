@@ -23,9 +23,14 @@
             <label class="talk__text" for="call"
               >Escolha o DDD de origem e destino</label
             >
-            <select v-model="state.call" class="talk__input" id="call">
+            <select
+              v-model="state.call"
+              data-test="call"
+              class="talk__input"
+              id="call"
+            >
               <option disabled>Origem / Destino</option>
-              <option value="1.90">011 - 016</option>
+              <option data-test="A" value="1.90">011 - 016</option>
               <option value="2.90">016 - 011</option>
               <option value="1.70">011 - 017</option>
               <option value="2.70">017 - 011</option>
@@ -40,6 +45,7 @@
             >
             <input
               v-model.number="state.minutes"
+              data-test="input-minutes"
               id="minutes"
               class="talk__input"
               type="number"
@@ -54,6 +60,7 @@
             </div>
             <input
               v-model="state.plan"
+              data-test="talk-more-30"
               id="talkMore30"
               value="30"
               type="radio"
@@ -84,10 +91,18 @@
           </div>
 
           <div>
-            <button @click="callCost" class="talk__button warning">
+            <button
+              @click="callCost"
+              class="talk__button warning"
+              data-test="call-cost"
+            >
               Custo da Ligação
             </button>
-            <button @click="clearSelection" class="talk__button danger">
+            <button
+              @click="clearSelection"
+              data-test="clear-selection"
+              class="talk__button danger"
+            >
               Limpar
             </button>
           </div>
@@ -112,12 +127,17 @@
           </p>
 
           <div class="talk__table">
-            <router-link to="/sobre">
-              <button class="talk__prices">Consulte a tabela de preços</button>
-            </router-link>
+            <button @click="goToAbout" class="talk__prices">
+              Consulte a tabela de preços
+            </button>
           </div>
 
-          <a @click="clearFormPrice" class="talk__clear">Limpar</a>
+          <a
+            @click="clearFormPrice"
+            data-test="clear-form-price"
+            class="talk__clear"
+            >Limpar</a
+          >
           <router-link to="/" class="talk__home">Ir para Home</router-link>
         </div>
       </div>
@@ -128,6 +148,7 @@
 <script>
 import VHeader from '@/components/VHeader.vue'
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 export default {
   name: 'Fale Mais',
   components: { VHeader },
@@ -139,6 +160,8 @@ export default {
       withTalkMore: 'R$ 0,00',
       withoutTalkMore: 'R$ 0,00'
     })
+
+    const router = useRouter()
 
     const clearSelection = () => {
       state.call = null
@@ -184,7 +207,11 @@ export default {
       clearSelection()
     }
 
-    return { state, clearSelection, callCost, clearFormPrice }
+    const goToAbout = () => {
+      router.push('/sobre')
+    }
+
+    return { state, clearSelection, callCost, clearFormPrice, goToAbout }
   }
 }
 </script>
